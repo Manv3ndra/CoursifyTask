@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Recruitment Startup</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'job_giver_style.css' %}">
+</head>
+<body>
+  <header>
+    <nav>
+      <!-- Add your company logo here -->
+      <ul>
+        <li><a href="home.html">Recruitment Company</a></li>
+        <!-- Add more navigation links here as needed -->
+      </ul>
+      <button type="button" class = "btn" onclick="window.location.href = '{{ user_signup_url }}'"">For Job Seekers</button>
+    </nav>
+  </header>
+  <!-- ... (existing code) ... -->
+
+  <!-- Job Seeker Sign Up Form -->
+  <section class="job-seeker-signup">
+    <div class="container">
+      <h2>Company Sign Up</h2>
+      <form method="post" action="{% url 'company_signup' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name = "company_name" placeholder="Company Name" required>
+        <input type="email" name = "email_address" placeholder="Company Email Address" required>
+        <input type="password" name = "password" placeholder="Password" required>
+        <input type="tel" name = "phone_number" placeholder="Company Phone Number" required>
+        <input type="text" name = "location" placeholder="Location" required>
+        <input type="text" name = "website" placeholder="Company Website" required>
+        <input type="text" name = "linkedin" placeholder="Linkedin" required>
+        <input type="text" name = "github" placeholder="GitHub" required>
+        <input type="text" name = "instagram" placeholder="Instagram" required>
+        <input type="text" name = "twitter" placeholder="Twitter" required>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>

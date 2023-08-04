@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Recruitment Startup</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'job_seeker_style.css' %}">
+</head>
+<body>
+  <header>
+    <nav>
+      <!-- Add your company logo here -->
+      <ul>
+        <li><a href="home.html">Recruitment Company</a></li>
+        <!-- Add more navigation links here as needed -->
+      </ul>
+      <button type="button" class = "btn" onclick="window.location.href = '{{ company_signup_url }}'">For Companies</button>
+    </nav>
+  </header>
+  <!-- ... (existing code) ... -->
+
+  <!-- Job Seeker Sign Up Form -->
+  <section class="job-seeker-signup">
+    <div class="container">
+      <h2>Job Seeker Sign Up</h2>
+      <form method="post" action="{% url 'user_signup' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email_address" placeholder="Email Address" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="tel" name="phone_number" placeholder="Phone Number" required>
+        <select name="gender" required>
+          <option value="" disabled selected>Select gender</option>
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+          <option value="O">Other</option>
+        </select>
+        <select name="highest_qualifications" required>
+          <option value="" disabled selected>Select highest qualification</option>
+          <option value="Bachelors">Bachelors</option>
+          <option value="Masters">Masters</option>
+          <option value="PHD">PHD</option>
+        </select>      
+        <input type="text" name="skills" placeholder="Skills" required>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </form>
+
+      <div class="social-login">
+        <p>Or sign up using:</p>
+        <a href="#" class="btn btn-google">Google</a>
+        <a href="#" class="btn btn-twitter">Twitter</a>
+        <a href="#" class="btn btn-linkedin">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

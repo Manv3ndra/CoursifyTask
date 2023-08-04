@@ -1,0 +1,102 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* ... (existing styles) ... */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    margin: 20px 0;
+  }
+  
+  .job-listings {
+    padding: 50px 20px;
+  }
+  
+  .job-listings h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter {
+    text-align: right; /* Align filter to the center */
+    margin-bottom: 20px;
+  }
+  
+  .job-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Increase the minmax value to make each job item wider */
+    grid-gap: 30px; /* Increase the grid-gap for more spacing between job items */
+  }
+  
+  .job-item {
+    background-color: #ffffff;
+    padding: 30px; /* Increase the padding for more spacing within each job item */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .job-item .job-details {
+    flex: 1;
+  }
+  
+  .job-item h3 {
+    margin-bottom: 10px;
+  }
+  
+  .job-item p {
+    margin-bottom: 5px;
+  }
+  
+  .company-logo img {
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 5px;
+  }
+  
+  .desc {
+    max-width: 350px;
+  }
+  /* ... (existing styles) ... */
+  

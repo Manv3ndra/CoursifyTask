@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recruitment Startup - Job Listings</title>
+  <link rel="stylesheet" href="{% static 'job_listing_style.css' %}">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <!-- Add your company logo here -->
+      <ul>
+        <li><a href="{% url 'home' %}">Recruitment Company</a></li>
+        <!-- Add more navigation links here as needed -->
+      </ul>
+      <button type="button" class="btn">Login</button>
+    </nav>
+  </header>
+
+  <!-- Job Listings Page -->
+  <section class="job-listings">
+    <h2>Job Listings</h2>
+    <div class="container">
+      <!-- Filter Section (moved to the top) -->
+      <div class="filter">
+        <label for="job-category">Filter by Job Category:</label>
+        <select id="job-category">
+          <option value="">All Categories</option>
+          <option value="software-engineer">Software Engineer</option>
+          <option value="product-manager">Product Manager</option>
+          <option value="data-scientist">Data Scientist</option>
+          <!-- Add more job categories here as needed -->
+        </select>
+      </div>
+      <p><b>{{ job_listings.count }}</b> matching results</p>
+
+      <div class="job-list">
+        {% for job_listing in job_listings %}
+        <div class="job-item">
+          <div class="job-details">
+            <h3>{{ job_listing.title }}</h3>
+            <p>Company: {{ job_listing.company.name }}</p>
+            <p>Location: {{ job_listing.location }}</p>
+            <p>Salary: {{ job_listing.salary }}</p>
+            <p class="desc">Description: {{ job_listing.description }}</p>
+            <p>Requrements: {{ job_listing.requirements }}</p>
+            <a href="{% url 'home' %}" class="btn btn-primary">Apply Now</a>
+          </div>
+        </div>
+        {% endfor %}
+        <!-- Add more job listings here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ... (existing code) ... -->
+
+</body>
+</html>

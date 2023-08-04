@@ -1,0 +1,100 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recruitment Startup</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'home_style.css' %}">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <!-- Add your company logo here -->
+      <ul>
+        <li><a href="#">Recruitment Company</a></li>
+        <!-- Add more navigation links here as needed -->
+      </ul>
+      <ul>
+      <!-- Add more navigation links here as needed -->
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+    </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Get Started</h1>
+    <div class="starting-container">
+      <!-- Add an attractive banner and content here -->
+      <div class="job-seeker">
+        <h1>Find your dream job with us</h1>
+        <p>For job seekers</p>
+        <button type="button" class = "btn" onclick="window.location.href = '{{ user_signup_url }}'">Sign Up</button>
+      </div>
+      <div class="job-giver">
+        <h1>Find your dream talent with us</h1>
+        <p>For companies</p>
+        <button type="button" class="btn" onclick="window.location.href = '{{ company_signup_url }}'">Sign Up</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Job Search Section -->
+  <section class="job-search">
+    <div class="container">
+      <!-- Add the job search form here -->
+      <h2>Find Your Perfect Job</h2>
+      <!-- Job search form elements go here -->
+      <form>
+        <input type="text" placeholder="Keyword (e.g., Software Engineer)">
+        <input type="text" placeholder="Location">
+        <select>
+          <option value="">Job Category</option>
+          <option value="software-engineer">Software Engineer</option>
+          <option value="product-manager">Product Manager</option>
+          <option value="data-scientist">Data Scientist</option>
+          <!-- Add more job categories here as needed -->
+        </select>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits">
+    <div class="container">
+      <!-- Add the benefits content here -->
+      <h2>Why Choose Us?</h2>
+      <ul>
+        <li>Access to a vast pool of talented professionals</li>
+        <li>Efficient and easy-to-use platform</li>
+        <li>Find the perfect match for your company</li>
+        <li>Job seekers can discover their dream jobs</li>
+        <!-- Add more benefits here -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="bottom-container">
+      <!-- Add your footer content and links here -->
+      <p>&copy; 2023 Your Company. All rights reserved.</p>
+      <ul>
+        <li><a class='ulLink' href="#">Privacy Policy</a></li>
+        <li><a class='ulLink' href="#">Terms of Service</a></li>
+        <!-- Add more footer links here as needed -->
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Add Bootstrap JS and other scripts here -->
+</body>
+</html>
